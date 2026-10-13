@@ -1,0 +1,32 @@
+.hero-banner {
+  background: linear-gradient(120deg, var(--navy) 0%, var(--navy-lighter) 100%);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.hero-text h1 { font-family: var(--font-display); font-size: 24px; font-weight: 600; margin: 0 0 8px; }
+.hero-text p { margin: 0; font-size: 13.5px; color: rgba(255,255,255,0.78); max-width: 520px; }
+
+.block-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
+.block-head h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0; }
+.block-head a { font-size: 12.5px; color: var(--navy); text-decoration: none; font-weight: 600; }
+
+.destacados-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.libro-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.libro-cover { height: 120px; display: flex; align-items: flex-end; justify-content: flex-end; padding: 8px; }
+.libro-cover span { color: rgba(255,255,255,0.7); font-size: 11px; font-family: var(--font-mono, monospace); }
+.libro-info { padding: 12px 14px 14px; }
+.libro-title { font-weight: 600; font-size: 13.5px; margin-bottom: 2px; }
+.libro-author { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+
+@media (max-width: 860px) {
+  .destacados-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.hero-search { margin-top: 16px; max-width: 420px; }
+.hero-search input { width: 100%; padding: 10px 14px; border-radius: 8px; border: none; font-family: var(--font-body); font-size: 13.5px; }
+.libro-card { color: inherit; display: block; transition: transform .12s ease; }
+.libro-card:hover { transform: translateY(-2px); }
+.summary-row { display: flex; justify-content: space-between; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.summary-row:last-child { border-bottom: none; }

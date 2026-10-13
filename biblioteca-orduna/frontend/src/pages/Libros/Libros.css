@@ -1,0 +1,15 @@
+.vista-toggle { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.vista-toggle button { padding: 8px 16px; background: var(--card); border: none; font-size: 13px; cursor: pointer; color: var(--muted); }
+.vista-toggle button.active { background: var(--navy); color: #fff; }
+
+.catalogo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.libro-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.libro-cover { height: 140px; }
+.libro-info { padding: 12px 14px 14px; }
+.libro-title { font-weight: 600; font-size: 13.5px; margin-bottom: 2px; }
+.libro-author { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+
+@media (max-width: 860px) {
+  .catalogo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+

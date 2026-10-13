@@ -1,0 +1,42 @@
+-- =====================================================================
+--  Datos iniciales del Sistema de Biblioteca Orduña
+--  Se ejecuta automáticamente al arrancar (spring.sql.init.mode=always).
+--  INSERT IGNORE: si el registro ya existe (mismo DNI/email/id) no hace nada.
+--
+--  Usuarios de prueba:
+--    GERENTE        -> admin@biblioteca.pe   / admin123
+--    BIBLIOTECARIO  -> biblio@biblioteca.pe  / biblio123
+--    LECTOR         -> lector@biblioteca.pe  / lector123
+--  (El registro público /api/usuarios/registro solo crea LECTORES.)
+-- =====================================================================
+
+INSERT IGNORE INTO usuarios (nombre, apellido, dni, email, telefono, tipo_usuario, contrasena_hash, rol, activo, fecha_registro)
+VALUES ('Gerente', 'General', '00000001', 'admin@biblioteca.pe', NULL, 'EXTERNO',
+        '$2a$10$YSOktMwMpFoJBQF6goQCbeEBqDT0Sm8sU.C11xV1KSzfVoBVcJgn.', 'GERENTE', 1, NOW());
+
+INSERT IGNORE INTO usuarios (nombre, apellido, dni, email, telefono, tipo_usuario, contrasena_hash, rol, activo, fecha_registro)
+VALUES ('Bibliotecario', 'Principal', '00000002', 'biblio@biblioteca.pe', NULL, 'EXTERNO',
+        '$2a$10$e/cxg4Kc31hmLXSGAHyZdu6Pj06U85fPBJPTY/TH58KBGajH4EqDe', 'BIBLIOTECARIO', 1, NOW());
+
+INSERT IGNORE INTO usuarios (nombre, apellido, dni, email, telefono, tipo_usuario, contrasena_hash, rol, activo, fecha_registro)
+VALUES ('Lector', 'de Prueba', '00000003', 'lector@biblioteca.pe', NULL, 'ESTUDIANTE',
+        '$2a$10$NCEK4v8hb.uL0siWxE7P7eHz.nuJ7X50J0kjRJYMB/fpXsZGvrTNu', 'LECTOR', 1, NOW());
+
+-- Configuración general y avisos (RF13 / RF11)
+INSERT IGNORE INTO configuracion (id_configuracion, nombre_biblioteca, correo_contacto, telefono_contacto,
+                                  hora_apertura, hora_cierre, aviso_vencimiento, aviso_reserva, aviso_multa,
+                                  aviso_nuevo_libro, fecha_actualizacion)
+VALUES (1, 'Biblioteca Orduña', 'contacto@biblioteca.pe', NULL, '08:00:00', '20:00:00', 1, 1, 1, 1, NOW());
+
+-- Multas y reservas vigentes (configuracion_multas): S/ 1.00 por día, préstamos de 7 días, 2 días para recoger
+INSERT IGNORE INTO configuracion_multas (id_configuracion, tarifa_multa_diaria, dias_max_prestamo,
+                                         dias_retiro_reserva, fecha_vigencia_desde, fecha_vigencia_hasta)
+VALUES (1, 1.00, 7, 2, NOW(), NULL);
+
+-- Géneros base (tabla generos -> libros_generos)
+INSERT IGNORE INTO generos (nombre) VALUES ('Novela');
+INSERT IGNORE INTO generos (nombre) VALUES ('Cuento');
+INSERT IGNORE INTO generos (nombre) VALUES ('Poesía');
+INSERT IGNORE INTO generos (nombre) VALUES ('Historia');
+INSERT IGNORE INTO generos (nombre) VALUES ('Ciencia');
+INSERT IGNORE INTO generos (nombre) VALUES ('Ingeniería');

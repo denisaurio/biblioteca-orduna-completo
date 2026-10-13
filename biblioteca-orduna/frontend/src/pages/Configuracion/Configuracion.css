@@ -1,0 +1,30 @@
+.config-tabs { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 20px; }
+.config-tabs button { padding: 8px 18px; background: var(--card); border: none; font-size: 13px; cursor: pointer; color: var(--muted); }
+.config-tabs button.active { background: var(--navy); color: #fff; }
+
+.config-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; align-items: start; }
+.config-form { padding: 24px 26px; }
+.config-form h3 { margin: 0 0 18px; font-size: 15px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 14px; }
+.form-row label { display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 7px; }
+.form-row label.sub-label { font-weight: 500; color: var(--muted); }
+.horario-label { display: block; font-size: 12.5px; font-weight: 600; margin: 4px 0 10px; }
+.form-row input {
+  width: 100%; padding: 9px 11px; border: 1px solid var(--border); border-radius: 7px;
+  background: var(--cream); font-family: var(--font-body); font-size: 13.5px; color: var(--ink);
+}
+.form-row input:focus { outline: none; border-color: var(--navy-lighter); box-shadow: 0 0 0 3px rgba(31,74,115,0.12); }
+.config-form .hint { font-size: 12px; color: var(--muted); margin: 4px 0 18px; }
+.config-form .btn-primary { margin-top: 6px; }
+
+.config-preview {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  padding: 40px 20px; text-align: center;
+}
+.config-preview svg { width: 34px; height: 34px; color: var(--navy); }
+.config-preview div { font-family: var(--font-display); font-weight: 600; font-size: 15px; }
+
+@media (max-width: 860px) {
+  .config-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
